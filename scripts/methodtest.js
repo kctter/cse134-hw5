@@ -10,19 +10,29 @@ function addGetBtnEvent() {
     let btn = document.getElementById('get-btn');
 
     btn.addEventListener('click', () => {
-        const xhr = new XMLHttpRequest();
-        xhr.responseType = 'json';
-        let query = new URLSearchParams(getForm()).toString();
-        xhr.open('GET', `http://httpbin.org/get?${query}`, true);
+        // if (toggle) {
+            const xhr = new XMLHttpRequest();
+            xhr.responseType = 'json';
+            let query = new URLSearchParams(getForm()).toString();
+            xhr.open('GET', `http://httpbin.org/get?${query}`, true);
 
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                document.getElementById('response-output').innerHTML = JSON.stringify(xhr.response, null, 1);
-                // console.log(xhr.response);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    document.getElementById('response-output').innerHTML = JSON.stringify(xhr.response, null, 1);
+                    // console.log(xhr.response);
+                }
             }
-        }
-        xhr.send(null);
-    });
+            xhr.send(null);
+
+        // } else {
+        //     let query = new URLSearchParams(getForm()).toString();
+        //     fetch(`http://httpbin.org/get?${query}`, {
+        //         method: 'GET'
+        //     })
+        //         .then(response => response.json())
+        //         .then(response => document.getElementById('response-output').textContent = JSON.stringify(response))
+        // }
+        });
 }
 
 function addPostBtnEvent() {
@@ -39,6 +49,13 @@ function addPostBtnEvent() {
             }
         };
         xhr.send(JSON.stringify(getForm()));
+    //     fetch('http://httpbin.org/post', {
+    //         method: 'POST',
+    //         headers: { 'Content-Type': 'application/json' },
+    //         body: JSON.stringify(getForm())
+    //     })
+    //         .then(response => response.json())
+    //         .then(response => document.getElementById('response-output').textContent = JSON.stringify(response))
     });
 }
 
@@ -56,7 +73,17 @@ function addPutBtnEvent() {
             }
         };
         xhr.send(JSON.stringify(getForm()));
+
+    //     fetch('http://httpbin.org/put', {
+    //         method: 'PUT',
+    //         headers: { 'Content-Type': 'application/json' },
+    //         body: JSON.stringify(getForm())
+    //     })
+    //         .then(response => response.json())
+    //         .then(response => document.getElementById('response-output').textContent = JSON.stringify(response))
     });
+
+
 }
 
 function addDeleteBtnEvent() {
@@ -73,6 +100,14 @@ function addDeleteBtnEvent() {
             }
         };
         xhr.send(JSON.stringify(getForm()));
+    //
+    //     fetch('http://httpbin.org/delete', {
+    //         method: 'DELETE',
+    //         headers: { 'Content-Type': 'application/json' },
+    //         body: JSON.stringify(getForm())
+    //     })
+    //         .then(response => response.json())
+    //         .then(response => document.getElementById('response-output').textContent = JSON.stringify(response))
     });
 }
 
