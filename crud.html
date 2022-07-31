@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD</title>
+    <script type="module">
+        import * as Posts from './scripts/blog.js';
+        import examplePosts from './scripts/examples.js';
+
+        // First, let's define the post elements.
+        Posts.definePostElements();
+
+        // Second, populate our DB with the example post if we don't have any.
+        if (Posts.countPosts() === 0) {
+            for (const post of examplePosts) {
+                Posts.insertPost(post);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", (_ev) => {
+            // First, let's display what we've got.
+            const postsContainer = document.getElementById("posts");
+            Posts.redisplayAllPosts(postsContainer);
+
+            // Now, let's set up our form so we can use it for adding posts.
+            const addPostForm = document.getElementById("insert-post-form");
+            addPostForm.addEventListener("submit", (ev) => {
+                // Stop the form submission event from continuing and refreshing the page.
+                ev.preventDefault();
+
+                // Load the data from the form into a FormData.
+                const formData = new FormData(ev.target);
+
+
+                // Validate the form data
+                // if (Posts.validatePost(formData)) {
+                    // The names of our form fields are identical to our book JSON, so just copy it over.
+                    const post = {};
+                    for (const [key, value] of formData.entries()) {
+                        post[key] = value;
+                    }
+
+                    console.log(post);
+                    // Insert the new post we just made and redisplay the books!
+                    Posts.insertPost(post);
+                    Posts.redisplayAllPosts(postsContainer);
+                // } else {
+                //     console.log('unsuccessful');
+                // }
+            });
+        });
+    </script>
+
+    <template id="post-template">
+        <post-article>
+            <post-title>
+                <h1>Title</h1>
+            </post-title>
+            <post-date>
+                <p>Date</p>
+            </post-date>
+            <post-summary>
+                <p>Lorem ipsum dolor sit amet...</p>
+            </post-summary>
+            <post-options>
+                <button type="button" id="edit-button">Edit</button>
+                <button type="button" id="delete-button">Delete</button>
+            </post-options>
+        </post-article>
+    </template>
+
+    <template id="dialog-template">
+        <dialog id="custom-dialog">
+            <p id="dialog-message"></p>
+            <button id="ok-button" value="true" type="button">OK</button>
+<!--            <button id="cancel-button" value="false" type="button">Cancel</button>-->
+        </dialog>
+    </template>
+
+    <template id="edit-template">
+        <dialog id="edit-post-dialog">
+            <form id="edit-post-form" action="">
+                <fieldset>
+                    <legend>Edit</legend>
+                    <post-title>
+                    <label for="title">Title</label>
+                    <input type="text" id="edit-title" name="title" placeholder="Title">
+                    </post-title>
+                    <br>
+                    <post-date>
+                    <label for="date">Date</label>
+                    <input type="date" id="edit-date" name="date">
+                    </post-date>
+                    <br>
+                    <post-summary>
+                    <label for="summary">Summary</label>
+                    <textarea name="summary" id="edit-summary" cols="65" rows="10" placeholder="Lorem ipsum dolor sit amet..."></textarea>
+                    </post-summary>
+                    <br>
+                    <post-options>
+                    <input type="submit" value="Edit">
+                        <button type="button" id="cancel-button">Cancel</button>
+                    </post-options>
+                </fieldset>
+            </form>
+        </dialog>
+
+    </template>
+
+</head>
+<body>
+<header>
+    <nav>
+        <ul class="top-nav">
+            <li><a href="./">Home</a></li>
+            <li><a class="active" href="./crud.html">CRUD</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <h1>Blog</h1>
+    <hr>
+    <section id="posts"></section>
+    <hr>
+    <section>
+        <form id="insert-post-form" action="">
+            <fieldset>
+                <legend>Add a Post</legend>
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title" placeholder="Title">
+                <br>
+                <label for="date">Date</label>
+                <input type="date" id="date" name="date">
+                <br>
+                <label for="summary">Summary</label>
+                <textarea name="summary" id="summary" cols="65" rows="10" placeholder="Lorem ipsum dolor sit amet..."></textarea>
+                <br>
+                <input type="submit" value="Post">
+            </fieldset>
+        </form>
+    </section>
+</main>
+</body>
+</html>

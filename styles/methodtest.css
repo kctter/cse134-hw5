@@ -1,0 +1,24 @@
+menu, ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    width: 400px;
+}
+
+button {
+    width: 100%;
+}
+
+label[for="article-date"] {
+    display: none;
+}
+
+label {
+    display: inline-block;
+    text-align: right;
+    width: 100px;
+}
+
+pre {
+    font-size: 14px;
+}

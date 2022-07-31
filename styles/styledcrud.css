@@ -1,0 +1,191 @@
+:root {
+    --width: 1080px;
+    --fath-out: all ease-in-out .2s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.ais-SearchBox { margin: 1em 0; }
+
+@font-face {
+    font-family: "Noto-Sans";
+    src: url("../NotoSans-Regular.ttf") format("ttf");
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    /*grid-template-rows: auto ;*/
+    /*grid-template-columns: 350px 730px;*/
+    /*align-items: start;*/
+    /*min-height: 100vh;*/
+    max-width: var(--width);
+    margin: 0 auto;
+}
+
+header {
+    position: sticky;
+    border: 1em;
+    top: 0;
+    font-family: "Noto-Sans", sans-serif;
+}
+
+.top-nav {
+    list-style-type: none;
+    overflow: hidden;
+    border: 1em;
+    background: lightgrey;
+}
+
+.top-nav > li {
+    float: left;
+}
+
+.top-nav > li a {
+    display: block;
+    color: black;
+    padding: 1em;
+    text-align: center;
+    text-decoration: none;
+}
+
+.top-nav > li a:hover {
+    background-color: darkgrey;
+    transition: var(--fath-out);
+}
+
+.top-nav > li a.active {
+    background-color: darkgrey;
+}
+
+.top-nav > li a.active:hover {
+    background-color: grey;
+}
+
+.blog-heading {
+    font-family: "Noto-Sans", sans-serif;
+    text-align: left;
+    padding: 2em 2.5em 1em 1em;
+}
+
+
+.blog-title {
+    font-family: "Noto-Sans", sans-serif;
+}
+
+.blogs {
+    margin: 1em;
+    border: 0.5em solid white;
+    padding: 1em;
+    background: white;
+
+}
+.article * {
+    color: black;
+    background: whitesmoke;
+}
+
+.blog-title {
+    font-family: "Noto-Sans", sans-serif;
+    padding: 1rem 3em 5px 0.5em;
+    font-size: xx-large;
+}
+
+.blog-title:after {
+    display: block;
+    background-color: grey;
+    width: 60px;
+    height: 6px;
+    content: "";
+}
+
+.blog-date {
+    font-family: "Noto-Sans", sans-serif;
+    padding-left: 1rem;
+    padding-bottom: 5px;
+    padding-right: 2em;
+    font-size: large;
+}
+
+.blog-summary {
+    font-family: "Noto-Sans", sans-serif;
+    padding-left: 1rem;
+    padding-right: 5em;
+    line-height: 32px;
+    font-size: large;
+}
+
+.blog-option {
+    padding-top: 20px;
+    padding-right: 10px;
+    display: inline;
+    float: right;
+}
+
+#edit-button {
+    background-image: url(../images/edit.svg);
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+    height: 30px;
+    width: 30px;
+    border: none;
+    font-size: 0;
+}
+
+#delete-button {
+    background-image: url(../images/trash.svg);
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+    height: 30px;
+    width: 30px;
+    border: none;
+    font-size: 0;
+}
+
+.add-post {
+    margin: 1em;
+    padding: 1em;
+}
+
+fieldset {
+    padding: 20px;
+    background-color: whitesmoke;
+}
+
+label {
+    background-color: whitesmoke;
+    padding: 1em;
+    display: grid;
+    font-size: 1rem;
+}
+
+legend {
+    font-family: "Noto-Sans", sans-serif;
+    font-size: x-large;
+}
+
+input, textarea, button {
+    width: 100%;
+    padding: 1em;
+    font-size: 1rem;
+    display: inline-block;
+    border: 2px solid grey;
+    box-sizing: border-box;
+}
+
+#edit-post-dialog {
+    margin: auto;
+    border: none;
+}
+
+
+footer {
+    flex: 1;
+    margin-top: auto;
+    background: lightgrey;
+}

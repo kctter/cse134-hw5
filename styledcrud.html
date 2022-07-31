@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Styled CRUD</title>
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+    <link rel="stylesheet" href="./styles/styledcrud.css">
+    <script src="scripts/anime.js"></script>
+
+    <script type="module">
+        import * as Posts from './scripts/blog.js';
+        import examplePosts from './scripts/examples.js';
+
+        // First, let's define the post elements.
+        Posts.definePostElements();
+
+        // Second, populate our DB with the example posts if we don't have any.
+        if (Posts.countPosts() === 0) {
+            for (const post of examplePosts) {
+                Posts.insertPost(post);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", (_ev) => {
+            // First, let's display what we've got.
+            const postsContainer = document.getElementById("posts");
+            Posts.redisplayAllPosts(postsContainer);
+
+
+            // Now, let's set up our form so we can use it for adding posts.
+            const addPostForm = document.getElementById("insert-post-form");
+            addPostForm.addEventListener("submit", (ev) => {
+                // Stop the form submission event from continuing and refreshing the page.
+                ev.preventDefault();
+
+                // Load the data from the form into a FormData.
+                const formData = new FormData(ev.target);
+                console.log(ev.target);
+
+                // Validate the form data
+                if (Posts.validatePost(formData)) {
+                    // console.log(ev.target);
+                    // The names of our form fields are identical to our post JSON, so just copy it over.
+                    const post = {};
+                    for (const [key, value] of formData.entries()) {
+                        post[key] = value;
+                    }
+
+                    // Insert the new post we just made and redisplay the books!
+                    Posts.insertPost(post);
+                    Posts.redisplayAllPosts(postsContainer);
+                } else {
+                    console.log('unsuccessful');
+                }
+            });
+
+            // anime function
+            const elements = document.querySelectorAll('post-article *');
+            anime({
+                targets: elements,
+                opacity: [0, 1],
+                duration : 1000,
+                easing: 'linear'
+            });
+        });
+    </script>
+
+
+    <template id="post-template">
+        <post-article class="article">
+            <post-options class="blog-option">
+                <button type="button" id="edit-button">Edit</button>
+                <button type="button" id="delete-button">Delete</button>
+            </post-options>
+            <post-title>
+                <h1 class="blog-title">Title</h1>
+            </post-title>
+            <post-date>
+                <p class="blog-date">Date</p>
+            </post-date>
+            <post-summary>
+                <p class="blog-summary">Lorem ipsum dolor sit amet...</p>
+            </post-summary>
+
+        </post-article>
+    </template>
+
+    <template id="dialog-template">
+        <dialog id="custom-dialog">
+            <p id="dialog-message"></p>
+            <button id="ok-button" value="true" type="button">OK</button>
+            <!--            <button id="cancel-button" value="false" type="button">Cancel</button>-->
+        </dialog>
+    </template>
+
+    <template id="edit-template">
+        <dialog id="edit-post-dialog">
+            <form id="edit-post-form" action="">
+                <fieldset>
+                    <legend>Edit</legend>
+                    <post-title>
+                        <label for="title">Title</label>
+                        <input type="text" id="edit-title" name="title" placeholder="Title">
+                    </post-title>
+                    <br>
+                    <post-date>
+                        <label for="date">Date</label>
+                        <input type="date" id="edit-date" name="date">
+                    </post-date>
+                    <br>
+                    <post-summary>
+                        <label for="summary">Summary</label>
+                        <textarea name="summary" id="edit-summary" cols="65" rows="10" placeholder="Lorem ipsum dolor sit amet..."></textarea>
+                    </post-summary>
+                    <br>
+                    <post-options>
+                        <input type="submit" value="Edit">
+                        <button type="button" id="cancel-button">Cancel</button>
+                    </post-options>
+                </fieldset>
+            </form>
+        </dialog>
+    </template>
+</head>
+<body>
+
+<header>
+    <!-- navbar -->
+    <nav>
+        <ul class="top-nav">
+            <li><a class="active" href="./">Home</a></li>
+            <li><a href="./crud.html">CRUD</a></li>
+            <li><a class="active" href="./styledcrud.html">New CRUD</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <h1 class="blog-heading">Blog</h1>
+    <hr>
+    <section id="posts" class="blogs"></section>
+    <hr>
+    <section class="add-post">
+        <form id="insert-post-form" action="">
+            <fieldset>
+                <legend>Add a Post</legend>
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title" placeholder="Title">
+                <br>
+                <label for="date">Date</label>
+                <input type="date" id="date" name="date">
+                <br>
+                <label for="summary">Summary</label>
+                <textarea name="summary" id="summary" cols="65" rows="10" placeholder="Lorem ipsum dolor sit amet..."></textarea>
+                <br>
+                <input type="submit" value="Post">
+            </fieldset>
+        </form>
+    </section>
+</main>
+
+<footer>
+    <hr>
+    <p>&copy; 2022 Henry Chan</p>
+</footer>
+
+
+</body>
+</html>

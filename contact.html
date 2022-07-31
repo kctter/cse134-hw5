@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact</title>
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+    <style>
+        @media screen and (min-width: 1080px) {
+            * {
+                margin: 0;
+                padding: 0;
+                font-family: Helvetica, sans-serif;
+            }
+
+            @font-face {
+                font-family: Helvetica;
+                src: local("Helveticaa.ttff")
+            }
+
+
+
+            body {
+                display: grid;
+                grid-template-rows: auto 1fr auto;
+                /*grid-template-columns: 350px 730px;*/
+                /*grid-template-columns: 0.2fr 0.8fr;*/
+                align-items: start;
+                min-height: 100vh;
+                max-width: 1080px;
+                margin: 0 auto;
+            }
+
+
+            header {
+                grid-column: 1 / 3;
+                position: -webkit-sticky;
+                position: sticky;
+                border: 1em;
+                top: 0;
+            }
+
+            .top-nav {
+                list-style-type: none;
+                overflow: hidden;
+                border: 1em;
+                background: lightgrey;
+                /*margin: 0 -1vw;*/
+                /*padding: 0 1vw;*/
+            }
+
+            .top-nav > li {
+                float: left;
+            }
+
+            .top-nav > li a {
+                display: block;
+                color: black;
+
+                padding: 1em;
+                text-align: center;
+                text-decoration: none;
+
+            }
+
+            .top-nav > li a:hover {
+                background-color: darkgrey;
+                transition: all ease-in-out .2s;
+            }
+
+            .top-nav > li a.active {
+                background-color: darkgrey;
+                transition: all ease-in-out .2s;
+            }
+
+            .top-nav > li a.active:hover {
+                background-color: grey;
+                transition: all ease-in-out .2s;
+            }
+
+
+            aside {
+                grid-row: 2 / 4;
+                padding-top: 0.5em;
+                margin-left: auto;
+                margin-right: auto;
+                position: -webkit-sticky;
+                position: sticky;
+                top: 5rem;
+            }
+
+
+            #profile-picture {
+                margin-left: auto;
+                margin-right: auto;
+                border-radius: 100%;
+                width: 200px;
+                height: 200px;
+                box-shadow: 0 5px 10px 0 rgba(35, 60, 80, .25);
+            }
+
+            .about > #name, .about > #role {
+                text-align: center;
+            }
+
+            .about > #information {
+                margin-left: auto;
+                margin-right: auto;
+                text-align: left;
+                padding-top: 0.5em;
+                padding-bottom: 0.5em;
+
+
+            }
+
+
+            main {
+                margin-left: auto;
+                margin-right: auto;
+                width: 640px;
+                grid-row: 2 / 3;
+            }
+
+
+            footer {
+                grid-column: 1 / 3;
+                background: lightgrey;
+            }
+        }
+
+        @media screen and (max-width: 1079px) {
+
+
+            * {
+                margin: 0;
+                padding: 0;
+                font-family: Helvetica, sans-serif;
+            }
+
+            @font-face {
+                font-family: Helvetica;
+                src: local("Helveticaa.ttff")
+            }
+
+
+
+
+
+            body {
+                display: grid;
+                grid-template-rows: auto auto auto;
+                grid-template-columns: 50% 50%;
+                /*grid-template-columns: 0.2fr 0.8fr;*/
+                align-items: start;
+                min-height: 100vh;
+                /*max-width: 1080px;*/
+                /*margin: 0 auto;*/
+
+            }
+
+
+            header {
+                grid-column: 1 / 3;
+                /*position: -webkit-sticky;*/
+                /*position: sticky;*/
+                border: 1em;
+
+
+            }
+
+            .top-nav {
+                list-style-type: none;
+                overflow: hidden;
+                border: 1em;
+                background: lightgrey;
+                /*margin: 0 -1vw;*/
+                /*padding: 0 1vw;*/
+
+
+            }
+
+            .top-nav > li {
+                /*float: left;*/
+                position: relative;
+
+
+            }
+
+            .top-nav > li a {
+                display: block;
+                color: black;
+
+                padding: 1em;
+                text-align: center;
+                text-decoration: none;
+            }
+
+            .top-nav > li a:hover {
+                background-color: darkgrey;
+                transition: all ease-in-out .2s;
+            }
+
+            .top-nav > li a.active {
+                background-color: darkgrey;
+                transition: all ease-in-out .2s;
+            }
+
+            .top-nav > li a.active:hover {
+                background-color: grey;
+                transition: all ease-in-out .2s;
+
+            }
+
+
+            aside {
+                display: contents;
+                /*padding-top: 1em;*/
+                /*margin-left: auto;*/
+                /*margin-right: auto;*/
+
+                /*position: -webkit-sticky;*/
+                /*position: sticky;*/
+                /*top: 5rem;*/
+
+
+            }
+
+
+            #profile-picture {
+                grid-column: 1 / 2;
+                margin-left: auto;
+                margin-right: auto;
+                border-radius: 100%;
+                margin-top: 25px;
+
+                width: 100px;
+                height: 100px;
+                box-shadow: 0 5px 10px 0 rgba(35, 60, 80, .25);
+
+
+            }
+
+            .about > #name, .about > #role {
+                text-align: center;
+            }
+
+            .about {
+                margin-top: 25px;
+            }
+
+            .about > #information {
+                grid-column: 2 / 3;
+                margin-left: auto;
+                margin-right: auto;
+                max-width: 250px;
+                margin-bottom: 25px;
+                text-align: left;
+
+
+            }
+
+
+            main {
+                grid-column: 1 / 3;
+                padding-left: 1em;
+                padding-right: 1em;
+            }
+
+
+            footer {
+                grid-column: 1 / 3;
+                background: lightgrey;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+<header>
+    <!-- navbar -->
+    <nav>
+        <ul class="top-nav">
+            <li><a href="./">Home</a></li>
+            <li><a href="./project.html">Project</a></li>
+            <li><a href="./hobby.html">Hobby</a></li>
+            <li><a class="active" href="./contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<aside>
+    <img id="profile-picture" src="./images/myself.jpg" alt="Picture of myself">
+    <div class="about">
+        <h2 id="name"><b>Henry Chan</b></h2>
+        <p id="role">Student</p>
+        <table id="information">
+            <tr>
+                <th>Age</th>
+                <td>21</td>
+            </tr>
+            <tr>
+                <th>Location</th>
+                <td>La Jolla, CA</td>
+            </tr>
+        </table>
+    </div>
+</aside>
+
+<main>
+    <h1>Contact</h1>
+    <hr>
+
+    <h2>You can fill in the form below</h2>
+
+    <form action="/form-handler" method="POST">
+        <fieldset>
+            <legend>Your Information</legend>
+
+            <label for="firstName">First Name:</label>
+            <input type="text" name="firstName" id="firstName"><br>
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" name="lastName" id="lastName"><br>
+
+            <label for="suffix">Suffix:</label>
+            <input list="suffix-list" name="suffix" id="suffix">
+            <datalist id="suffix-list">
+                <option value="Sr.">
+                <option value="Jr.">
+            </datalist>
+            <br>
+
+            <label for="country">Country:</label>
+            <select name="country" id="country">
+                <optgroup label="North American">
+                    <option>United States of America</option>
+                    <option>Canada</option>
+                    <option>Mexico</option>
+                </optgroup>
+                <optgroup label="Europe">
+                    <option>United Kingdom</option>
+                    <option>France</option>
+                    <option>German</option>
+                </optgroup>
+                <optgroup label="Other">
+                    <option>Others</option>
+                </optgroup>
+            </select><br>
+
+
+            <label for="email">Email address:</label>
+            <input type="email" name="email" id="email"><br>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" name="phone" id="phone"><br>
+
+            <label for="subject">Subject:</label>
+            <textarea name="subject" id="subject"></textarea><br>
+
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+        </fieldset>
+    </form>
+
+
+    <h2>You can come and visit me at UCSD</h2>
+    <iframe width="640" height="480"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=-117.25647926330568%2C32.85619355721603%2C-117.22738265991212%2C32.901461285951115&amp;layer=mapnik&amp;marker=32.87883031139498%2C-117.24193096160889"></iframe>
+    <br/><small><a href="https://www.openstreetmap.org/?mlat=32.8788&amp;mlon=-117.2419#map=15/32.8788/-117.2419">View
+    Larger Map</a></small>
+</main>
+
+
+<footer>
+    <p>&copy; 2022 Henry Chan</p>
+</footer>
+
+</body>
+</html>

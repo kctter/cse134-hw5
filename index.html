@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Henry's persona page</title>
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+    <link rel="stylesheet" media="screen and (min-width: 1080px)" href="./styles/index.css">
+    <link rel="stylesheet" media="screen and (max-width: 1079px)" href="./styles/index-mobile.css">
+    <script src="scripts/anime.js"></script>
+</head>
+
+<body>
+
+<header>
+    <!-- navbar -->
+    <nav>
+        <ul class="top-nav">
+            <li><a class="active" href="./">Home</a></li>
+            <li><a href="./project.html">Project</a></li>
+            <li><a href="./hobby.html">Hobby</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+            <li><a href="./nativedialogs.html">Dialogs</a></li>
+            <li><a href="./crud.html">CRUD</a></li>
+            <li><a href="./styledcrud.html">New CURD</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- left side -->
+<aside>
+    <img id="profile-picture" src="./images/myself.jpg" alt="Picture of myself">
+    <div class="about">
+        <h2 id="name"><b>Henry Chan</b></h2>
+        <p id="role">Student</p>
+        <table id="information">
+            <tr>
+                <th>Age</th>
+                <td>21</td>
+            </tr>
+            <tr>
+                <th>Location</th>
+                <td>La Jolla, CA</td>
+            </tr>
+        </table>
+    </div>
+</aside>
+
+<!-- main content-->
+<main>
+    <h1 class="main-title">Welcome to Henry Chan homepage!</h1>
+
+    <article>
+        <h2 class="article-subject">About</h2>
+        <hr>
+        <p class="article-start">I am a student in <span
+                style="color:red">University of California, San Diego, CA</span>. Ever since I
+            was a
+            child, I loved to make stuff on
+            my own and show them to my parents, friends and classmates. I am now pursuing a Bachelor’s degree in
+            Mathematics - Computer Science with a minor of Data Science. I am interested in computer science and
+            currently leaning about web dev. </p>
+    </article>
+
+
+    <article>
+        <h2 class="article-title">Education</h2>
+        <hr>
+        <ul class="article-subject">
+            <li class="article-list">B.S. in Computer Science, UCSD, 2022
+                <ul>
+                    <li>GPA 3.0+</li>
+                </ul>
+            </li>
+        </ul>
+    </article>
+
+    <article>
+        <h2 class="article-title">Work Experience</h2>
+        <hr>
+        <section class="article-subject">
+            <h3 class="article-left">University of California, San Diego</h3>
+            <h4 class="article-right">2020 - Present</h4>
+        </section>
+        <br>
+        <section class="article-subject">
+            <h3 class="article-left">Laney College, Oakland</h3>
+            <h4 class="article-right">2016 - Present</h4>
+        </section>
+    </article>
+
+
+    <article>
+        <h2 class="article-title">Schedule</h2>
+        <hr>
+        <p class="article-subject">You may find my working schedule here. Fell me to contact me when I am free.</p>
+        <table class="calendar">
+            <caption>Working schedule as of July</caption>
+            <colgroup>
+                <col span="1" class="time">
+                <col span="5" class="weekday">
+                <col span="2" class="weekend">
+            </colgroup>
+            <tr class="week">
+                <th>&nbsp;</th>
+                <th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+                <th>Thursday</th>
+                <th>Friday</th>
+                <th>Saturday</th>
+                <th>Sunday</th>
+            </tr>
+            <tr>
+                <th>Morning</th>
+                <td>Busy</td>
+                <td>Busy</td>
+                <td>Busy</td>
+                <td>Busy</td>
+                <td>Free</td>
+                <td>Free</td>
+                <td>Free</td>
+            </tr>
+            <tr>
+                <th>Noon</th>
+                <td>Free</td>
+                <td>Free</td>
+                <td>Free</td>
+                <td>Free</td>
+                <td>Free</td>
+                <td>Free</td>
+                <td>Free</td>
+            </tr>
+            <tr>
+                <th>Night</th>
+                <td>Free</td>
+                <td>Free</td>
+                <td>Free</td>
+                <td>Free</td>
+                <td>Free</td>
+                <td>Free</td>
+                <td>Free</td>
+            </tr>
+        </table>
+    </article>
+    <article>
+        <h2 class="article-title">Value</h2>
+        <hr>
+        <p class="article-subject">As a computer science student, I have a few values want to share.</p>
+        <ol>
+            <li class="article-list">Be Happy!</li>
+            <li class="article-list">Start early Start often!</li>
+            <li class="article-list">Enjoy!</li>
+        </ol>
+    </article>
+</main>
+
+<footer>
+    <hr>
+    <p>&copy; 2022 Henry Chan</p>
+</footer>
+
+</body>
+</html>

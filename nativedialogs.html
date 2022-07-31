@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dialogs</title>
+    <script type="text/javascript" src="./scripts/purify.js"></script>
+    <script type="text/javascript" src="./scripts/dialog.js"></script>
+    <script type="module">
+        import * as customDialog from './scripts/customdialog.js';
+        customDialog.loadCustomAlertEvent();
+        customDialog.loadCustomConfirmEvent();
+        customDialog.loadCustomPromptEvent();
+        customDialog.loadCustomSafePromptEvent();
+    </script>
+</head>
+<body>
+
+<header>
+    <nav>
+        <ul class="top-nav">
+            <li><a href="./">Home</a></li>
+            <li><a class="active" href="./nativedialogs.html">Dialogs</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <h1>Simple Dialogs?</h1>
+    <br>
+    <button type="button" id="default-alert-button">Alert</button>
+    <button type="button" id="default-confirm-button">Confirm</button>
+    <button type="button" id="default-prompt-button">Prompt</button>
+    <button type="button" id="default-safer-prompt-button">Safer Prompt</button>
+    <hr>
+    <button type="button" id="custom-alert-button">Custom Alert</button>
+    <button type="button" id="custom-confirm-button">Custom Confirm</button>
+    <button type="button" id="custom-prompt-button">Custom Prompt</button>
+    <button type="button" id="custom-safer-prompt-button">Custom Safer Prompt</button>
+    <hr>
+    <template id="custom-dialog-template">
+        <dialog id="custom-dialog">
+            <p id="dialog-message"></p>
+                <label id="text-label" for="input">
+                    <input id="input" type="text">
+                </label>
+                <button id="ok-button" value="true" type="button">OK</button>
+                <button id="cancel-button" value="false" type="button">Cancel</button>
+        </dialog>
+    </template>
+    <output id="output"></output>
+    <br>
+</main>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hobby</title>
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" media="screen and (min-width: 1080px)" href="./styles/hobby.css">
+    <link rel="stylesheet" media="screen and (max-width: 1079px)" href="./styles/hobby-mobile.css">
+
+</head>
+<body>
+
+<header>
+    <!-- navbar -->
+    <nav>
+        <ul class="top-nav">
+            <li><a href="./">Home</a></li>
+            <li><a href="./project.html">Project</a></li>
+            <li><a class="active" href="./hobby.html">Hobby</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<aside>
+    <img id="profile-picture" src="./images/myself.jpg" alt="Picture of myself">
+    <div class="about">
+        <h2 id="name"><b>Henry Chan</b></h2>
+        <p id="role">Student</p>
+        <table id="information">
+            <tr>
+                <th>Age</th>
+                <td>21</td>
+            </tr>
+            <tr>
+                <th>Location</th>
+                <td>La Jolla, CA</td>
+            </tr>
+        </table>
+    </div>
+</aside>
+
+<main>
+<h1>Hobby</h1>
+<hr>
+<p>Over the years, I have some hobby and would like to share here. </p>
+
+<section>
+    <h2 class="sub-heading">Picture</h2>
+    <figure>
+        <picture>
+            <!-- src https://www.istockphoto.com/photo/domestic-black-cat-looking-in-front-of-camera-and-lying-on-the-bed-portrait-of-black-gm1175550351-327402259 -->
+            <source media="(max-width: 1079px)" srcset="./images/Black_Cat_low_res.jpg">
+            <source media="(min-width: 1080px)" srcset="./images/Black_Cat.jpg">
+            <img src="./images/Black_Cat.jpg" alt="Black Cat">
+        </picture>
+        <figcaption>Black Cat</figcaption>
+    </figure>
+    <br>
+    <figure>
+        <picture>
+            <!-- https://pixabay.com/photos/cat-pet-feline-cute-orange-animal-360808/ -->
+            <source media="(max-width: 1079px)" srcset="./images/Orange_Cat_low_res.jpg">
+            <source media="(min-width: 1080px)" srcset="./images/Orange_Cat.jpg">
+            <img src="./images/Orange_Cat.jpg" alt="Orange Cat">
+        </picture>
+        <figcaption>Orange Cat</figcaption>
+    </figure>
+    <br>
+</section>
+
+<section>
+    <h2 class="sub-heading">Video</h2>
+    <video controls>
+        <source src="./Rick_Astley_Never_Gonna_Give_You_Up.mp4" type="video/mp4">
+        Sorry, your browser doesn't support embedded videos.<br>
+        Never Goona Giv You Up Video. <br>
+    </video>
+    <br>
+</section>
+
+<section>
+    <h2 class="sub-heading">Audio</h2>
+    <audio controls>
+        <source src="./Rick_Astley_Never_Gonna_Give_You_Up.mp4" type="audio/mp3">
+        Sorry, your browser doesn't support embedded audio.<br>
+        Never Goona Giv You Up Audio. <br>
+    </audio>
+    <br>
+</section>
+
+<section>
+    <h2 class="sub-heading">Graphics</h2>
+    <svg width="256" height="256">
+        <circle cx="128" cy="128" r="100" fill="yellow"/>
+        <circle cx="96" cy="100" r="10" fill="black"/>
+        <circle cx="160" cy="100" r="10" fill="black"/>
+        <path d="M70 150 Q135,240 190 150"/>
+    </svg>
+    <br>
+</section>
+
+    <canvas height="256" id="canvas" width="256">
+        Your browser does not support the canvas tag.<br>
+        It is just a simple drawing using canvas.<br>
+    </canvas>
+
+<script>
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+    ctx.font = "30px Comic Sans MS";
+    ctx.textAlign = "center";
+    ctx.strokeText("Henry Chan", canvas.width / 2, canvas.height / 2);
+
+    ctx.beginPath();
+    ctx.rect(20, 20, 150, 100);
+    ctx.stroke()
+
+    ctx.beginPath();
+    ctx.rect(80, 80, 150, 100);
+    ctx.stroke()
+</script>
+</main>
+
+<footer>
+    <p>&copy; 2022 Henry Chan</p>
+</footer>
+
+</body>
+</html>

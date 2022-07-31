@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./scripts/methodtest.js" type="text/javascript"></script>
+    <link href="./styles/methodtest.css" rel="stylesheet">
+</head>
+
+<body>
+<main>
+    <form action="" id="record-form">
+        <fieldset>
+            <legend>Record Form</legend>
+            <label for="article-id">Record ID:</label>
+            <input id="article-id" name="id" placeholder="id" type="text">
+            <br>
+            <label for="article-name">Article Name:</label>
+            <input id="article-name" name="name" placeholder="title" type="text">
+            <br>
+            <label for="article-body">Article Body:</label>
+            <textarea id="article-body" name="body" placeholder="body"></textarea>
+            <br>
+            <label for="article-date">Article Date:</label>
+            <input id="article-date" name="date" placeholder="2020-01-01" type="hidden">
+
+            <menu>
+                <li>
+                    <button id="post-btn" type="button">Post</button>
+                </li>
+                <li>
+                    <button id="get-btn" type="button">Get</button>
+                </li>
+                <li>
+                    <button id="put-btn" type="button">Put</button>
+                </li>
+                <li>
+                    <button id="delete-btn" type="button">Delete</button>
+                </li>
+            </menu>
+        </fieldset>
+    </form>
+
+<pre>
+Response body:
+<output id="response-output"></output>
+</pre>
+
+</main>
+</body>
+</html>
